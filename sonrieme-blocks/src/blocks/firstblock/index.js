@@ -1,6 +1,5 @@
-var registerBlockType = wp.blocks.registerBlockType;
-var __ = wp.i18n.__;
-var el = wp.element.createElement;
+import { registerBlockType } from '@wordpress/blocks'
+import { __ } from '@wordpress/i18n'
 
 import edit from './components/edit'
 import save from './components/save'

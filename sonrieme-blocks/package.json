@@ -10,6 +10,10 @@
   "author": "Kelly Barber",
   "license": "MIT",
   "dependencies": {
+    "@wordpress/blocks": "^6.12.1",
+    "@wordpress/editor": "^9.12.3",
+    "@wordpress/element": "^2.11.0",
+    "@wordpress/i18n": "^3.9.0",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
   },

@@ -52,6 +52,8 @@ function sonrieme_blocks_register() {
     );
 
     sonrieme_blocks_register_block_type('firstblock');
+    sonrieme_blocks_register_block_type('about-card');
+    sonrieme_blocks_register_block_type('post-grid');
 }
 
 add_action('init', 'sonrieme_blocks_register');

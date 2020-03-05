@@ -25,8 +25,8 @@ module.exports = {
               [
                 '@babel/preset-react',
                 {
-                  "pragma"     : "React.createElement",
-                  "pragmaFrag" : "React.Fragment",
+                  "pragma"     : "wp.element.createElement",
+                  "pragmaFrag" : "wp.element.Fragment",
                 }
               ]
             ]
@@ -48,6 +48,12 @@ module.exports = {
         ]
       }
     ]
+  },
+  externals : {
+    '@wordpress/blocks'  : [ 'wp', 'blocks' ],
+    '@wordpress/i18n'    : [ 'wp', 'i18n' ],
+    '@wordpress/editor'  : [ 'wp', 'editor' ],
+    '@wordpress/element' : [ 'wp', 'element' ]
   },
   plugins : [
     new CleanWebpackPlugin({
