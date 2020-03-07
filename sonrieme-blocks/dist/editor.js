@@ -97,39 +97,41 @@
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/editor */ "@wordpress/editor");
-/* harmony import */ var _wordpress_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 
 
 
 var edit = function edit(_ref) {
   var className = _ref.className,
       attributes = _ref.attributes,
-      setAttribute = _ref.setAttribute;
+      setAttributes = _ref.setAttributes;
   var title = attributes.title,
       description = attributes.description;
   return wp.element.createElement("div", {
     className: className
-  }, wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+  }, wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     className: "".concat(className, "__title"),
-    tagName: "h4",
-    onChange: function onChange() {
-      return setAttribute({
+    tagName: "h3",
+    value: title,
+    onChange: function onChange(title) {
+      return setAttributes({
         title: title
       });
     },
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Member Name', 'sonrieme-blocks'),
-    formattingControls: []
-  }), wp.element.createElement(_wordpress_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
+    allowedFormats: []
+  }), wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"], {
     className: "".concat(className, "__title"),
     tagName: "p",
-    onChange: function onChange() {
-      return setAttribute({
-        info: info
+    value: description,
+    onChange: function onChange(description) {
+      return setAttributes({
+        description: description
       });
     },
     placeholder: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Member Name', 'sonrieme-blocks'),
-    formattingControls: []
+    allowedFormats: []
   }));
 };
 
@@ -146,11 +148,27 @@ var edit = function edit(_ref) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
 var save = function save(_ref) {
-  var className = _ref.className;
-  return wp.element.createElement("div", {
-    className: className
-  }, "'Hello'");
+  var attributes = _ref.attributes;
+  var title = attributes.title,
+      description = attributes.description;
+  var className = Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["getBlockDefaultClassName"])('sonrieme-blocks/about-card');
+  return wp.element.createElement("div", null, title && wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"].Content, {
+    className: "".concat(className, "__title"),
+    tagName: "h3",
+    value: title
+  }), description && wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["RichText"].Content, {
+    className: "".concat(className, "__description"),
+    tagName: "p",
+    value: description
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (save);
@@ -183,7 +201,7 @@ var attributes = {
   title: {
     type: 'string',
     source: 'html',
-    selector: 'h4'
+    selector: 'h3'
   },
   description: {
     type: 'string',
@@ -196,6 +214,7 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("son
   description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("About Card", "sonrieme-blocks"),
   category: "common",
   icon: "admin-users",
+  parent: ['sonrieme-blocks/post-grid'],
   attributes: attributes,
   edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _components_save__WEBPACK_IMPORTED_MODULE_3__["default"]
@@ -214,50 +233,84 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("son
 
 /***/ }),
 
-/***/ "./src/blocks/firstblock/components/edit.js":
-/*!**************************************************!*\
-  !*** ./src/blocks/firstblock/components/edit.js ***!
-  \**************************************************/
+/***/ "./src/blocks/post-grid/components/edit.js":
+/*!*************************************************!*\
+  !*** ./src/blocks/post-grid/components/edit.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
+/* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
+/* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
+
+
+
+
 var edit = function edit(_ref) {
-  var className = _ref.className;
+  var className = _ref.className,
+      attributes = _ref.attributes,
+      setAttributes = _ref.setAttributes;
+  var columns = attributes.columns;
   return wp.element.createElement("div", {
-    className: className
-  }, "'Hello'");
+    className: "".concat(className, " columns--").concat(columns)
+  }, wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InspectorControls"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["PanelBody"], null, wp.element.createElement(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__["RangeControl"], {
+    label: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__["__"])('Columns', 'sonrieme-blocks'),
+    value: columns,
+    onChange: function onChange(columns) {
+      return setAttributes({
+        columns: columns
+      });
+    },
+    min: 1,
+    max: 6
+  }))), wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__["InnerBlocks"], {
+    allowedBlocks: ['sonrieme-blocks/about-card']
+  }));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (edit);
 
 /***/ }),
 
-/***/ "./src/blocks/firstblock/components/save.js":
-/*!**************************************************!*\
-  !*** ./src/blocks/firstblock/components/save.js ***!
-  \**************************************************/
+/***/ "./src/blocks/post-grid/components/save.js":
+/*!*************************************************!*\
+  !*** ./src/blocks/post-grid/components/save.js ***!
+  \*************************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/block-editor */ "@wordpress/block-editor");
+/* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/blocks */ "@wordpress/blocks");
+/* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__);
+
+
+
 var save = function save(_ref) {
-  var className = _ref.className;
+  var attributes = _ref.attributes;
+  var columns = attributes.columns;
+  var className = Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_1__["getBlockDefaultClassName"])('sonrieme-blocks/about-card');
   return wp.element.createElement("div", {
-    className: className
-  }, "'Hello'");
+    className: "columns--".concat(columns)
+  }, wp.element.createElement(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_0__["InnerBlocks"].Content, null));
 };
 
 /* harmony default export */ __webpack_exports__["default"] = (save);
 
 /***/ }),
 
-/***/ "./src/blocks/firstblock/index.js":
-/*!****************************************!*\
-  !*** ./src/blocks/firstblock/index.js ***!
-  \****************************************/
+/***/ "./src/blocks/post-grid/index.js":
+/*!***************************************!*\
+  !*** ./src/blocks/post-grid/index.js ***!
+  \***************************************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -267,45 +320,41 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_blocks__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @wordpress/i18n */ "@wordpress/i18n");
 /* harmony import */ var _wordpress_i18n__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__);
-/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/firstblock/components/edit.js");
-/* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/save */ "./src/blocks/firstblock/components/save.js");
-/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/firstblock/styles/editor.scss");
+/* harmony import */ var _components_edit__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/edit */ "./src/blocks/post-grid/components/edit.js");
+/* harmony import */ var _components_save__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/save */ "./src/blocks/post-grid/components/save.js");
+/* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./styles/editor.scss */ "./src/blocks/post-grid/styles/editor.scss");
 /* harmony import */ var _styles_editor_scss__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_styles_editor_scss__WEBPACK_IMPORTED_MODULE_4__);
 
 
 
 
 
-Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("sonrieme-blocks/firstblock", {
-  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("First Block", "sonrieme-blocks"),
-  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Our first block", "sonrieme-blocks"),
+var attributes = {
+  columns: {
+    type: 'number',
+    default: 2
+  }
+};
+Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("sonrieme-blocks/post-grid", {
+  title: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Post Grid", "sonrieme-blocks"),
+  description: Object(_wordpress_i18n__WEBPACK_IMPORTED_MODULE_1__["__"])("Post Grid", "sonrieme-blocks"),
   category: "common",
-  icon: "admin-network",
+  icon: "screenoptions",
+  attributes: attributes,
   edit: _components_edit__WEBPACK_IMPORTED_MODULE_2__["default"],
   save: _components_save__WEBPACK_IMPORTED_MODULE_3__["default"]
 });
 
 /***/ }),
 
-/***/ "./src/blocks/firstblock/styles/editor.scss":
-/*!**************************************************!*\
-  !*** ./src/blocks/firstblock/styles/editor.scss ***!
-  \**************************************************/
+/***/ "./src/blocks/post-grid/styles/editor.scss":
+/*!*************************************************!*\
+  !*** ./src/blocks/post-grid/styles/editor.scss ***!
+  \*************************************************/
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
 // extracted by mini-css-extract-plugin
-
-/***/ }),
-
-/***/ "./src/blocks/post-grid/index.js":
-/*!***************************************!*\
-  !*** ./src/blocks/post-grid/index.js ***!
-  \***************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-
 
 /***/ }),
 
@@ -319,12 +368,20 @@ Object(_wordpress_blocks__WEBPACK_IMPORTED_MODULE_0__["registerBlockType"])("son
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_about_card__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/about-card */ "./src/blocks/about-card/index.js");
-/* harmony import */ var _blocks_firstblock__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/firstblock */ "./src/blocks/firstblock/index.js");
-/* harmony import */ var _blocks_post_grid__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/post-grid */ "./src/blocks/post-grid/index.js");
-/* harmony import */ var _blocks_post_grid__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_blocks_post_grid__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _blocks_post_grid__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/post-grid */ "./src/blocks/post-grid/index.js");
 
 
 
+/***/ }),
+
+/***/ "@wordpress/block-editor":
+/*!*************************************!*\
+  !*** external ["wp","blockEditor"] ***!
+  \*************************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+module.exports = wp["blockEditor"];
 
 /***/ }),
 
@@ -339,14 +396,14 @@ module.exports = wp["blocks"];
 
 /***/ }),
 
-/***/ "@wordpress/editor":
-/*!********************************!*\
-  !*** external ["wp","editor"] ***!
-  \********************************/
+/***/ "@wordpress/components":
+/*!************************************!*\
+  !*** external ["wp","components"] ***!
+  \************************************/
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = wp["editor"];
+module.exports = wp["components"];
 
 /***/ }),
 

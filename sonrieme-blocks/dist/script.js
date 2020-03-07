@@ -112,32 +112,6 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
-/***/ "./src/blocks/firstblock/script.js":
-/*!*****************************************!*\
-  !*** ./src/blocks/firstblock/script.js ***!
-  \*****************************************/
-/*! no exports provided */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/firstblock/styles/style.scss");
-/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_scss__WEBPACK_IMPORTED_MODULE_0__);
-
-
-/***/ }),
-
-/***/ "./src/blocks/firstblock/styles/style.scss":
-/*!*************************************************!*\
-  !*** ./src/blocks/firstblock/styles/style.scss ***!
-  \*************************************************/
-/*! no static exports found */
-/***/ (function(module, exports, __webpack_require__) {
-
-// extracted by mini-css-extract-plugin
-
-/***/ }),
-
 /***/ "./src/blocks/post-grid/script.js":
 /*!****************************************!*\
   !*** ./src/blocks/post-grid/script.js ***!
@@ -174,9 +148,7 @@ __webpack_require__.r(__webpack_exports__);
 "use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_about_card_script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/about-card/script */ "./src/blocks/about-card/script.js");
-/* harmony import */ var _blocks_firstblock_script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/firstblock/script */ "./src/blocks/firstblock/script.js");
-/* harmony import */ var _blocks_post_grid_script__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/post-grid/script */ "./src/blocks/post-grid/script.js");
-
+/* harmony import */ var _blocks_post_grid_script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/post-grid/script */ "./src/blocks/post-grid/script.js");
 
 
 

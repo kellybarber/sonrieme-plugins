@@ -50,10 +50,12 @@ module.exports = {
     ]
   },
   externals : {
-    '@wordpress/blocks'  : [ 'wp', 'blocks' ],
-    '@wordpress/i18n'    : [ 'wp', 'i18n' ],
-    '@wordpress/editor'  : [ 'wp', 'editor' ],
-    '@wordpress/element' : [ 'wp', 'element' ]
+    '@wordpress/blocks'       : [ 'wp', 'blocks' ],
+    '@wordpress/i18n'         : [ 'wp', 'i18n' ],
+    '@wordpress/editor'       : [ 'wp', 'editor' ],
+    '@wordpress/block-editor' : [ 'wp', 'blockEditor' ],
+    '@wordpress/element'      : [ 'wp', 'element' ],
+    '@wordpress/components'   : [ 'wp', 'components' ]
   },
   plugins : [
     new CleanWebpackPlugin({

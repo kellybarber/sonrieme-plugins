@@ -1,7 +1,7 @@
 import { __ } from '@wordpress/i18n'
-import { RichText } from '@wordpress/editor';
+import { RichText } from '@wordpress/block-editor';
 
-const edit = ({ className, attributes, setAttribute }) => {
+const edit = ({ className, attributes, setAttributes }) => {
 
     const { title, description } = attributes;
 
@@ -9,17 +9,19 @@ const edit = ({ className, attributes, setAttribute }) => {
         <div className={className}>
             <RichText
                 className={`${className}__title`}
-                tagName='h4'
-                onChange={() => setAttribute({title})}
+                tagName='h3'
+                value={title}
+                onChange={(title) => setAttributes({title})}
                 placeholder={__('Member Name', 'sonrieme-blocks')}
-                formattingControls={[]}
+                allowedFormats={[]}
             />
             <RichText
                 className={`${className}__title`}
                 tagName='p'
-                onChange={() => setAttribute({info})}
+                value={description}
+                onChange={(description) => setAttributes({description})}
                 placeholder={__('Member Name', 'sonrieme-blocks')}
-                formattingControls={[]}
+                allowedFormats={[]}
             />
         </div>
     )

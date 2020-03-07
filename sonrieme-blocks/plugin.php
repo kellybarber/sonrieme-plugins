@@ -32,7 +32,7 @@ function sonrieme_blocks_register() {
     wp_register_script(
         'sonrieme-blocks-editor-script',
         plugins_url('dist/editor.js', __FILE__),
-        array('wp-blocks','wp-i18n', 'wp-element', 'wp-editor', 'wp-components')
+        array('wp-blocks','wp-i18n', 'wp-element', 'wp-editor', 'wp-components', 'wp-block-editor')
     );
 
     wp_register_style(
@@ -51,7 +51,6 @@ function sonrieme_blocks_register() {
         plugins_url('dist/style.css', __FILE__)
     );
 
-    sonrieme_blocks_register_block_type('firstblock');
     sonrieme_blocks_register_block_type('about-card');
     sonrieme_blocks_register_block_type('post-grid');
 }

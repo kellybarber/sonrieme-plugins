@@ -10,7 +10,7 @@ const attributes = {
     title : {
         type     : 'string',
         source   : 'html',
-        selector : 'h4'
+        selector : 'h3'
     },
     description : {
         type     : 'string',
@@ -20,10 +20,11 @@ const attributes = {
 }
 
 registerBlockType("sonrieme-blocks/about-card", {
-    title: __("About Card", "sonrieme-blocks"),
-    description: __("About Card", "sonrieme-blocks"),
-    category: "common",
-    icon: "admin-users",
+    title       : __("About Card", "sonrieme-blocks"),
+    description : __("About Card", "sonrieme-blocks"),
+    category    : "common",
+    icon        : "admin-users",
+    parent      : ['sonrieme-blocks/post-grid'],
     attributes,
     edit,
     save

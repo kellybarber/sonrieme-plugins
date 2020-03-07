@@ -1,0 +1,17 @@
+.wp-block-sonrieme-blocks-post-grid {
+  display: block;
+  @for $column from 1 through 6 {
+    &.columns--#{$column} {
+      [data-type="sonrieme-blocks/about-card"] {
+        width: calc(100% / #{$column});
+      }
+    }
+  }
+  > .editor-inner-blocks > .editor-block-list__layout {
+    display: flex;
+    flex-wrap: wrap;
+    > [data-type="sonrieme-blocks/about-card"] {
+      max-width: none;
+    }
+  }
+}
