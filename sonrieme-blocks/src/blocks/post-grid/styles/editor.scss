@@ -2,16 +2,30 @@
   display: block;
   @for $column from 1 through 6 {
     &.columns--#{$column} {
-      [data-type="sonrieme-blocks/about-card"] {
-        width: calc(100% / #{$column});
+      > .editor-inner-blocks > .editor-block-list__layout {
+        grid-template-columns: repeat(#{$column}, 1fr);
+
+        .editor-block-list__block {
+          //flex-basis: calc(100% / #{$column});
+          margin: 0 4%;
+        }
       }
     }
   }
   > .editor-inner-blocks > .editor-block-list__layout {
-    display: flex;
-    flex-wrap: wrap;
+    //display: flex;
+    //flex-wrap: wrap;
+    //flex-direction: row;
+    display: grid;
+    padding-left: 20px;
+    padding-right: 20px;
+
     > [data-type="sonrieme-blocks/about-card"] {
       max-width: none;
     }
   }
 }
+
+//[data-type="sonrieme-blocks/about-card"] {
+//  width: calc(100% / #{$column});
+//}
