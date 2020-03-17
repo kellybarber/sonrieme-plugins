@@ -55,7 +55,8 @@ module.exports = {
     '@wordpress/editor'       : [ 'wp', 'editor' ],
     '@wordpress/block-editor' : [ 'wp', 'blockEditor' ],
     '@wordpress/element'      : [ 'wp', 'element' ],
-    '@wordpress/components'   : [ 'wp', 'components' ]
+    '@wordpress/components'   : [ 'wp', 'components' ],
+    '@wordpress/data'         : [ 'wp', 'data' ]
   },
   plugins : [
     new CleanWebpackPlugin({

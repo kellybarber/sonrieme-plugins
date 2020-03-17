@@ -138,6 +138,32 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./src/blocks/service-card/script.js":
+/*!*******************************************!*\
+  !*** ./src/blocks/service-card/script.js ***!
+  \*******************************************/
+/*! no exports provided */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/style.scss */ "./src/blocks/service-card/styles/style.scss");
+/* harmony import */ var _styles_style_scss__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_styles_style_scss__WEBPACK_IMPORTED_MODULE_0__);
+
+
+/***/ }),
+
+/***/ "./src/blocks/service-card/styles/style.scss":
+/*!***************************************************!*\
+  !*** ./src/blocks/service-card/styles/style.scss ***!
+  \***************************************************/
+/*! no static exports found */
+/***/ (function(module, exports, __webpack_require__) {
+
+// extracted by mini-css-extract-plugin
+
+/***/ }),
+
 /***/ "./src/script.js":
 /*!***********************!*\
   !*** ./src/script.js ***!
@@ -149,6 +175,8 @@ __webpack_require__.r(__webpack_exports__);
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _blocks_about_card_script__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./blocks/about-card/script */ "./src/blocks/about-card/script.js");
 /* harmony import */ var _blocks_post_grid_script__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./blocks/post-grid/script */ "./src/blocks/post-grid/script.js");
+/* harmony import */ var _blocks_service_card_script__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./blocks/service-card/script */ "./src/blocks/service-card/script.js");
+
 
 
 

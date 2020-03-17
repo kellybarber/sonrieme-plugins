@@ -32,5 +32,35 @@
     .wp-block-sonrieme-blocks-post-grid > .editor-inner-blocks > .editor-block-list__layout > [data-type="sonrieme-blocks/about-card"] {
       max-width: none; }
 
+.wp-block-sonrieme-blocks-service-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center; }
+  .wp-block-sonrieme-blocks-service-card.no-image-set:before {
+    display: none; }
+  .wp-block-sonrieme-blocks-service-card:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(26, 38, 64, 0.4); }
+  .wp-block-sonrieme-blocks-service-card .components-placeholder.block-editor-media-placeholder.editor-media-placeholder {
+    margin: 0; }
+  .wp-block-sonrieme-blocks-service-card .editor-rich-text.block-editor-rich-text > h3 {
+    color: #ffffff;
+    padding: 1rem 4rem; }
+    .wp-block-sonrieme-blocks-service-card .editor-rich-text.block-editor-rich-text > h3.is_selected {
+      color: #ffffff; }
+      .wp-block-sonrieme-blocks-service-card .editor-rich-text.block-editor-rich-text > h3.is_selected [data-rich-text-placeholder] {
+        color: #ffffff; }
+
 
 /*# sourceMappingURL=editor.css.map*/

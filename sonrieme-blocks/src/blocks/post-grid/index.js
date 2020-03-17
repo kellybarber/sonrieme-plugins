@@ -7,9 +7,16 @@ import save from './components/save'
 import './styles/editor.scss'
 
 const attributes = {
-    columns : {
+    numberOfPosts : {
         type    : 'number',
         default : 2
+    },
+    columns : {
+        type    : 'number',
+        default : 1
+    },
+    postCategories : {
+        type : 'string'
     }
 }
 

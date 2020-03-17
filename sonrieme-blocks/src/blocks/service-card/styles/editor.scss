@@ -1,0 +1,44 @@
+.wp-block-sonrieme-blocks-service-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  border-radius: 16px;
+  overflow: hidden;
+  background-size: cover;
+  background-position: center;
+
+  &.no-image-set:before {
+    display: none;
+  }
+
+  &:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(#1A2640, 0.4);
+  }
+
+  .components-placeholder.block-editor-media-placeholder.editor-media-placeholder {
+    margin: 0;
+  }
+
+  .editor-rich-text.block-editor-rich-text {
+    > h3 {
+      color: #ffffff;
+      padding: 1rem 4rem;
+
+      &.is_selected {
+        color: #ffffff;
+
+        [data-rich-text-placeholder] {
+          color: #ffffff;
+        }
+      }
+    }
+  }
+}
