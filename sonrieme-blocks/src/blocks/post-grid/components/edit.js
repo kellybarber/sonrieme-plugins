@@ -1,35 +1,39 @@
 import { __ } from '@wordpress/i18n'
-import { useState, useEffect } from '@wordpress/element'
-import { synchronizeBlocksWithTemplate } from '@wordpress/blocks'
+import { useEffect } from '@wordpress/element'
+import { select, dispatch } from '@wordpress/data'
 import { InnerBlocks, InspectorControls } from "@wordpress/block-editor"
 import { PanelBody, RangeControl } from '@wordpress/components'
 import { withSelect } from '@wordpress/data'
 
-const edit = ({ className, attributes, setAttributes, posts }) => {
+const edit = ({ className, attributes, setAttributes, posts, clientId }) => {
 
     const { columns, numberOfPosts } = attributes
 
-    const [ template, setTemplate ] = useState([])
-
     useEffect(() => {
-        if (posts) {
-            const workingPosts = posts.slice(0, numberOfPosts)
+        const children = select('core/editor').getBlocksByClientId(clientId)[0].innerBlocks
 
-            const servicesTemplate = posts && posts.length > 0 ? posts.map(post => (
-                [ 'sonrieme-blocks/service-card', {
-                    title : post.title.raw,
-                    id    : post.featured_media,
-                    url   : post._embedded['wp:featuredmedia'][0].source_url
-                }]
-            )) : []
+        if (posts && children) children.forEach((child, index) => {
+            const post = posts[index]
 
-            setTemplate(servicesTemplate)
-        }
-    }, [ numberOfPosts ])
+            if (!post) return
+
+            if (child) {
+                const childAttributes = child.attributes
+
+                const updatedAttributes = {}
+                if (!childAttributes.title) updatedAttributes.title = post.title.raw
+                if (!childAttributes.id) updatedAttributes.id = post.featured_media
+                if (!childAttributes.url) updatedAttributes.url = post._embedded['wp:featuredmedia'][0].source_url
+
+                dispatch('core/editor').updateBlockAttributes(child.clientId, updatedAttributes)
+            }
+
+        })
+    })
 
     return (
         <div className={ `${className} columns--${columns}` }>
-            <InspectorControls>
+{/*            <InspectorControls>
                 <PanelBody title={ __('Posts Settings', 'sonrieme-blocks') } >
                     <RangeControl
                         label={ __( 'Number of Posts', 'sonrieme-blocks' ) }
@@ -48,26 +52,16 @@ const edit = ({ className, attributes, setAttributes, posts }) => {
                         max={ 4 }
                     />
                 </PanelBody>
-            </InspectorControls>
+            </InspectorControls>*/}
             <InnerBlocks
                 allowedBlocks={ ['sonrieme-blocks/about-card', 'sonrieme-blocks/services-card'] }
-                template={() =>  posts && posts.length > 0 ? posts.map(post => (
-                    [ 'sonrieme-blocks/service-card', {
-                        title : post.title.raw,
-                        id    : post.featured_media,
-                        url   : post._embedded['wp:featuredmedia'][0].source_url
-                    }]
-                )) : []}
             />
         </div>
     )
 }
 
-export default withSelect(( select, props ) => {
-    const { attributes : { numberOfPosts } } = props
-
+export default withSelect(( select ) => {
     const query = {
-        per_page : numberOfPosts,
         _embed   : true
     }
 
